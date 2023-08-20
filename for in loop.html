@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+        // Iterate over an object using a for...in loop and log each property name and value
+         {
+          const obj = {
+            name: 'ali',
+            age: 15,
+            country: 'england'
+          };
+    
+          for (const key in obj) {
+                console.log(key + ':', obj[key]);
+              }
+        
+              console.log(obj);
+    
+        // Iterate over an array using a for...in loop and log each value
+       {
+          const arr = ['apple', 'banana', 'orange'];
+    
+          for (const index in arr) {
+            console.log(arr[index]);
+          }
+    
+          console.log(arr);
+        }}
+    
+        // Iterate over an object using a for...in loop and log each property name
+        {
+          const person = {
+            name: 'ali',
+            age: 15,
+            country: 'USA'
+          };
+    
+          for (const key in person) {
+            console.log(key);
+          }
+    
+          console.log(person);
+    
+        // Iterate over an array using a for...in loop and log each index
+        
+        {
+          const numbers = [1, 2, 3];
+    
+          for (const index in numbers) {
+            console.log(index);
+          }
+    
+         console.log(numbers);}
+    
+        //Iterate over a string using a for...in loop and log each character
+        {
+          const message = 'Hello, world!';
+    
+          for (const index in message) {
+            console.log(message[index]);
+          }
+    
+        console.log(message);
+        }}
+    
+        // Iterate over a Map using a for...in loop and log each key and value pair
+       {
+          const scores = new Map([
+            ['Atif', 50],
+            ['Alisha', 90],
+            ['Ali', 75]
+          ]);
+    
+          for (const key in scores) {
+            console.log(key + ':', scores[key]);
+          }
+    
+         console.log(scores);
+        }
+    
+        // Iterate over an object using a for...in loop and log each property value
+    
+        {
+          const car = {
+            brand: 'Alto',
+            model: 'C',
+            year: 2018
+          };
+    
+          for (const key in car) {
+            console.log(car[key]);
+          }
+          console.log(car);
+        }
+      </script> 
+</body>
+</html>

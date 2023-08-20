@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT/title>
+</head>
+<body>
+    <script>
+/*Write a function that takes an array of numbers and returns a map that maps each
+number to its square.*/
+
+function mapToSquares(numbersArray) {
+  const squareMap = new Map();
+  
+  for (const number of numbersArray) {
+    squareMap.set(number, number * number);
+  }
+  
+  return squareMap;
+}
+const numbers = [1, 2, 3, 4, 5];
+const squareMap = mapToSquares(numbers);
+
+console.log(squareMap.get(2)); 
+coinsole.log(squareMap.get(4)); 
+
+
+/*Write a function that takes an array of objects with name and age properties and
+returns a map that maps each name to its corresponding age.*/
+
+const mapNamesToAges = (people) => {
+    const result = new Map();
+  
+    for (const person of people) {
+      const { name, age } = person;
+      result.set(name, age);
+    }
+  
+    return result;
+  };
+  
+  const peopleArray = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 22 },
+    { name: 'David', age: 27 },
+  ];
+  
+  const resultMap = mapNamesToAges(peopleArray);
+  console.log(resultMap);
+
+  /*Write a function that takes a map and a key and returns a boolean value indicating
+whether the map contains the key or not.*/
+
+
+  const hasKeyInMap = (map, key) => {
+    return map.has(key);
+  };
+  
+ const myMap = new Map([
+    ['a', 1],
+    ['b', 2],
+    ['c', 3],
+  ]);
+  
+  console.log(hasKeyInMap(myMap, 'b')); 
+  console.log(hasKeyInMap(myMap, 'd')); 
+  
+ /* Write a function that takes a map and a callback function and returns a new map that
+contains the key-value pairs from the original map that satisfy the callback function.*/
+
+function filterMap(map, callback) {
+  const filteredMap = new Map();
+
+  for (const [key, value] of map) {
+    if (callback(key, value)) {
+      filteredMap.set(key, value);
+    }
+  }
+
+  return filteredMap;
+}
+const originalMap = new Map([
+  ['apple', 3],
+  ['banana', 5],
+  ['orange', 2],
+  ['grape', 7]
+]);
+
+const filteredCallback = (key, value) => value > 3;
+
+const filteredMap = filterMap(originalMap, filteredCallback);
+
+console.log(filteredMap);
+
+/*Write a function that takes two maps and returns a new map that contains the key-
+value pairs from both maps. If there are duplicate keys, the values from the second map
+should overwrite the values from the first map.*/
+
+function mergeMaps(map1, map2) {
+  const mergedMap = new Map([...map1, ...map2]);
+  return mergedMap;
+}
+
+const map1 = new Map([
+  ['a', 1],
+  ['b', 2]
+]);
+
+const map2 = new Map([
+  ['b', 3],
+  ['c', 4]
+]);
+
+const mergedMap = mergeMaps(map1, map2);
+
+console.log(mergedMap);
+
+
+</script>
+</body>
+</html>

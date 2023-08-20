@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+
+<script>
+    // Counter using closures
+{
+    function counter() {
+      let count = 0;
+
+      return function() {
+        count++;
+        console.log(count);
+      };
+    }
+
+    const incrementCounter = counter();
+
+    console.log(counter);
+}
+
+    //Create multiplier using closures
+{
+    function createMultiplier(number) {
+      return function(multiplier) {
+        return number * multiplier;
+      };
+    }
+
+    const multiplyByTwo = createMultiplier(2);
+
+     {
+      const result = multiplyByTwo(5);
+      console.log(createMultiplier);
+    }
+
+    // 3. Secret message using closures
+    function secretMessage(string) {
+      return function() {
+        console.log(`Secret message: ${string}`);
+      };
+    }
+
+    const revealSecret = secretMessage('Open sesame');
+
+    ;
+
+    // Calculate using closures
+    function calculate(num1, num2) {
+      return {
+        add: function() {
+          return num1 + num2;
+        },
+        multiply: function() {
+          return num1 * num2;
+        }
+      };
+    }
+
+    const calculator = calculate(3, 4);
+ {
+      const sum = calculator.add();
+      const product = calculator.multiply();
+      console.log(calculate);
+    }};
+  </script>
+
+
+</body>
+</html>

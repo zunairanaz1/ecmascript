@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+/*Write a function that takes two numbers and returns their sum. Use default parameters
+to assign 0 as the default value for both numbers.*/
+
+const sumNumbers = (num1 = 0, num2 = 0) => num1 + num2;
+
+function calculateSum() {
+  const num1 = parseFloat(document.getElementById('num1').value);
+  const num2 = parseFloat(document.getElementById('num2').value);
+  const result = sumNumbers(num1, num2);
+  document.getElementById('result1').textContent = result;
+}
+
+
+/*Write a function that takes any number of arguments and returns an array with all the
+arguments. Use rest parameters to collect the arguments into an array.*/
+
+function getArguments(...args) {
+  return args;
+}
+
+function displayArguments() {
+  const argumentsArray = getArguments(1, 'hello', true, [1, 2, 3]);
+  document.getElementById('result2').textContent = JSON.stringify(argumentsArray);
+}
+
+/*Create an object called `calculator` with a `value` property and three methods: `add`,
+`subtract`, and `multiply`. Each method should take a number as a parameter and
+update the `value` property accordingly. Add a method called `printValue` that logs
+the current value.*/
+
+
+function calculate() {
+  const userInput = document.getElementById('numberInput').value;
+  const numberValue = parseFloat(userInput);
+  document.getElementById('result3').textContent = numberValue;
+}
+
+/*Imagine you have an object called book with properties like title, author, and pages.
+How would you define a method called printInfo that logs a message displaying the
+book's title, author, and number of pages using this keyword?*/
+
+
+function concatenateArrays() {
+  const array1 = document.getElementById('array1Input').value.split(',').map(item => parseFloat(item.trim()));
+  const array2 = document.getElementById('array2Input').value.split(',').map(item => parseFloat(item.trim()));
+
+  if (array1.some(isNaN) || array2.some(isNaN)) {
+    document.getElementById('result4').textContent = "Invalid input, please enter valid arrays of numbers.";
+  } else {
+    const resultArray = [...array1, ...array2];
+    document.getElementById('result4').textContent = resultArray.toString();
+  }
+}
+
+
+/*You have a constructor function called Person that creates person objects with
+properties like name and age. How would you define a method called introduce that
+logs a greeting message including the person's name and age, using this keyword?*/
+
+
+function addIdToObject(person) {
+  const id = generateUniqueId(); 
+  return { ...person, id };
+}
+
+function generateUniqueId() {
+  return Math.random().toString(23).substr(7, 2);
+}
+
+function processInput(event) {
+  event.preventDefault();
+
+  const name = "zunaira"; 
+  const age = 18; 
+  const occupation = document.getElementById('occupationInput').value;
+
+  const inputObject = { name, age, occupation };
+  const resultObject = addIdToObject(inputObject);
+
+  document.getElementById('result5').textContent = JSON.stringify(resultObject, null, 2);
+}
+
+/*Consider an object called counter with a property count and two methods:
+increment and reset. How would you define the increment method so that it
+increases the count property by 1 using this keyword?*/
+
+const counter = {
+  count: 0,
+  increment: function() {
+    this.count += 1;
+  },
+  reset: function() {
+    this.count = 0;
+  }
+};
+
+
+console.log(counter.count); 
+counter.increment();
+console.log(counter.count); 
+counter.reset();
+console.log(counter.count);
+
+
+/* Let's say you have an object called product with properties like name, price, and
+discount. How would you define a method called calculateDiscountedPrice that
+calculates and returns the discounted price of the product using this keyword?*/
+
+function discountPercentage(salePrice, originalPrice) {
+    const discountAmount = originalPrice - salePrice;
+    const percentage = (discountAmount / originalPrice) * 100;
+    return percentage;
+}
+
+let M, S;
+M = 120;
+S = 100;
+
+console.log(discountPercentage(S, M).toFixed(2) + "%");
+
+M = 1000;
+S = 500;
+
+console.log(discountPercentage(S, M).toFixed(2) + "%");
+
+/*Imagine you have a function called play which is defined inside an object called
+game. How would you call the play function from within the object using this
+keyword?*/
+
+const game = {
+  play: function() {
+   
+    console.log("Playing the game!");
+  }
+};
+
+game.play();
+
+
+
+
+    </script>
+</body>
+</html>

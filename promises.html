@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+
+/*Write a function that takes a number and returns a promise that resolves with the
+square of the number after 1 second.*/
+
+function squareAfterDelay(number) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (typeof number === 'number') {
+            const square = number * number;
+            resolve(square);
+          } else {
+            reject(new Error('Invalid input: The parameter must be a number.'));
+          }
+        }, 1000);
+      });
+    }
+
+    const calculateButton = document.getElementById('calculate-button');
+    const resultElement = document.getElementById('sqr');
+
+    calculateButton.addEventListener('click', () => {
+      const numberInput = document.getElementById('number-input').value;
+      const number = parseFloat(numberInput);
+
+      squareAfterDelay(number)
+        .then((result) => {
+          resultElement.textContent = `The square of ${number} is: ${result}`;
+        })
+        .catch((error) => {
+          resultElement.textContent = error.message;
+        });
+    });
+
+   /* Write a function that takes an array of promises and returns a promise that resolves
+with an array of the resolved values of each promise.*/
+
+function resolvePromises(promisesArray) {
+    return Promise.all(promisesArray);
+  }
+  
+  function resolveUserPromises() {
+    const inputElement = document.getElementById("promises");
+    const userInput = inputElement.value.trim();
+  
+    if (userInput.length === 0) {
+      alert("Please enter promises separated by commas.");
+      return;
+    }
+  
+    const userPromises = userInput.split(",").map(p => new Promise(resolve => resolve(p.trim())));
+  
+    resolvePromises(userPromises)
+      .then((results) => {
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = `<p>Resolved Values: ${JSON.stringify(results)}</p>`;
+      })
+      .catch((error) => {
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = `<p>Error occurred: ${error}</p>`;
+      });
+  }
+
+ /* Write a function that takes a URL and returns a promise that fetches the data from the
+URL and parses it as JSON.*/
+
+function fetchDataAsJSON(url) {
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok. Status: ${response.status}`);
+      }
+      return response.json();
+    });
+}
+
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+fetchDataAsJSON(apiUrl)
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+ /* Write a function that takes two promises and returns a promise that resolves with the
+sum of the resolved values of both promises.*/
+
+function sumOfPromises(promise1, promise2) {
+  return Promise.all([promise1, promise2])
+    .then(([value1, value2]) => value1 + value2);
+}
+
+const promise1 = Promise.resolve(5);
+const promise2 = Promise.resolve(7);
+
+sumOfPromises(promise1, promise2)
+  .then(sum => {
+    console.log("Sum:", sum); 
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+
+
+ /* Write a function that takes a promise and a timeout in milliseconds and returns a
+promise that rejects with an error if the original promise does not resolve within the
+timeout.*/
+
+function promiseWithTimeout(promise, timeout) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error(`Promise timed out after ${timeout} milliseconds`));
+      }, timeout);
+    })
+  ]);
+}
+
+
+const delayPromise = new Promise(resolve => {
+  setTimeout(() => {
+    resolve("Promise resolved after delay");
+  }, 2000);
+});
+
+const timeoutPromise = promiseWithTimeout(delayPromise, 1500);
+
+timeoutPromise
+  .then(result => {
+    console.log(result); 
+  })
+  .catch(error => {
+    console.error(error.message); 
+  });
+  
+
+  function promiseWithTimeout(originalPromise, timeout) {
+    const timeoutPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error("Promise timed out"));
+      }, timeout);
+    });
+  
+    return Promise.race([originalPromise, timeoutPromise]);
+  }
+  
+  function runPromiseWithTimeout() {
+    const timeoutInput = parseInt(document.getElementById("timeoutInput").value, 10);
+  
+    if (isNaN(timeoutInput) || timeoutInput <= 0) {
+      alert("Please enter a valid positive timeout value (in milliseconds).");
+      return;
+    }
+  
+    const promise = new Promise((resolve) => setTimeout(() => resolve("Promise resolved"), 2000));
+  
+    promiseWithTimeout(promise, timeoutInput)
+      .then((result) => {
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `<p>Result: ${result}</p>`;
+      })
+      .catch((error) => {
+        const resultDiv = document.getElementById("prmtimeout");
+        resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+      });
+  }
+  
+  /*point*/
+  const startCountingPromise = new Promise((resolve) => {
+    resolve("Start Counting");
+  });
+  function counter(value) {
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerHTML += `<p>${value}</p>`;
+  }
+  
+  startCountingPromise
+    .then((result) => {
+      counter(result);
+      return 1;
+    })
+    .then((value) => {
+      counter(value);
+      return value + 1;
+    })
+    .then((value) => {
+      counter(value);
+      return value + 1;
+    })
+    .then((value) => { 
+      counter(value);
+    });
+
+    </script>
+    </body>
+    </html>

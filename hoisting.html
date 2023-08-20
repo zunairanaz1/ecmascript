@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eECMASCRIPT</title>
+</head>
+<body>
+    <script>
+
+//Write a function that prints the value of a variable declared with var after the function
+//declaration. What will be the output?
+
+function printValue() {
+    console.log(anyVar);
+    var anyVar = 9;
+    console.log(anyVar);
+}
+
+printValue();
+
+/*Write a function that prints the value of a variable declared with let after the function
+declaration. What will be the output?*/
+
+function printValue() {
+    console.log(anyVar); 
+    let anyVar = 9;
+    console.log(anyVar);
+}
+
+printValue();
+
+/*Write a function that prints the value of a variable declared with const after the function
+declaration. What will be the output?*/
+
+function printValue() {
+    console.log(myVar); 
+    const anyVar = 9;
+    console.log(myVar);
+}
+
+printValue();
+
+/*
+ Write a function that prints the value of a variable assigned to an undeclared variable*/
+
+function printValue() {
+console.log(undeclaredVar); 
+}
+
+printValue();
+
+/*
+ Write a function that calls another function declared with a function declaration before
+the function declaration. What will be the output?*/
+
+callMe();
+
+function callMe() {
+    console.log("Hello i am callMe function!");
+}
+
+    </script>
+</body>
+</html>

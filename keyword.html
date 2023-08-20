@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+
+
+/* Create an object called `person` with a `name` property and a `greet` method. The
+`greet` method should log a greeting message with the person's name.*/
+
+const person = {
+    name: "dien",
+    greet: function() {
+      console.log(`Hello, my name is ${this.name}.`);
+    }
+  };
+  
+  person.greet(); 
+  
+
+
+//// Create a constructor function called `Car` that has `brand` and `speed` properties.
+//Add a method called `accelerate` that increases the speed of the car by a given
+//value. Add a method called `print Speed` that logs the current speed of the car.
+
+function Car(brand) {
+    this.brand = brand;
+    this.speed = 0;
+  
+    this.accelerate = function(value) {
+      this.speed += value;
+    };
+  
+    this.printSpeed = function() {
+      console.log(`Current speed of ${this.brand} car: ${this.speed} km/h`);
+    };
+  }
+  
+  const myCar = new Car("alto");
+  
+  myCar.accelerate(60);
+  myCar.printSpeed(); 
+  
+  myCar.accelerate(70);
+  myCar.printSpeed(); 
+  
+
+
+/* Create an object called `calculator` with a `value` property and three methods: `add`,
+`subtract`, and `multiply`. Each method should take a number as a parameter and
+update the `value` property accordingly. Add a method called `printValue` that logs
+the current value.*/
+
+const calculator = {
+    value: 0,
+  
+    add: function(num) {
+      this.value += num;
+    },
+  
+    subtract: function(num) {
+      this.value -= num;
+    },
+  
+    multiply: function(num) {
+      this.value *= num;
+    },
+  
+    printValue: function() {
+      console.log(`Current value: ${this.value}`);
+    }
+  };
+  
+  calculator.add(8);
+  calculator.printValue(); 
+  
+  calculator.subtract(9);
+  calculator.printValue(); 
+  
+  calculator.multiply(4);
+  calculator.printValue(); 
+  
+
+/*Imagine you have an object called book with properties like title, author, and pages.
+How would you define a method called printInfo that logs a message displaying the
+book's title, author, and number of pages using this keyword?*/
+
+const calculator1 = {
+    value: 0,
+  
+    add: function(num) {
+      this.value += num;
+    },
+  
+    subtract: function(num) {
+      this.value -= num;
+    },
+  
+    multiply: function(num) {
+      this.value *= num;
+    },
+  
+    printValue: function() {
+      console.log(`Current value: ${this.value}`);
+    }
+  };
+  
+  calculator.add(10);
+  calculator.printValue(); 
+  
+  calculator.subtract(5);
+  calculator.printValue();
+  
+  calculator.multiply(2);
+  calculator.printValue(); 
+  
+
+/*You have a constructor function called Person that creates person objects with
+properties like name and age. How would you define a method called introduce that
+logs a greeting message including the person's name and age, using this keyword?*/
+
+
+const book = {
+    title: "sitara e imtiaz",
+    author: "gulzar",
+    pages: 220,
+  
+    printInfo: function() {
+      console.log(`Title: ${this.title}`);
+      console.log(`Author: ${this.author}`);
+      console.log(`Number of Pages: ${this.pages}`);
+    }
+  };
+  
+  book.printInfo();
+
+
+ /*Consider an object called counter with a property count and two methods:
+increment and reset. How would you define the increment method so that it
+increases the count property by 1 using this keyword?*/
+
+const counter = {
+    count: 0,
+  
+    increment: function() {
+      this.count += 1;
+    },
+  
+    reset: function() {
+      this.count = 0;
+    }
+  };
+  
+  counter.increment();
+  console.log(counter.count); 
+  
+  counter.increment();
+  console.log(counter.count); 
+  
+  counter.reset();
+  console.log(counter.count);
+  
+
+
+/*Let's say you have an object called product with properties like name, price, and
+discount. How would you define a method called calculateDiscountedPrice that
+calculates and returns the discounted price of the product using this keyword?*/
+
+
+const product = {
+    name: "mobile",
+    price: 22000,
+    discount: 0.1,
+  
+    calculateDiscountedPrice: function() {
+      return this.price - (this.price * this.discount);
+    }
+  };
+  
+  const discountedPrice = product.calculateDiscountedPrice();
+  console.log(discountedPrice); 
+
+
+/* Imagine you have a function called play which is defined inside an object called
+game. How would you call the play function from within the object using this
+keyword?*/
+
+const game = {
+    playerName: "zunaira",
+    score: 1,
+  
+    play() {
+      // Your game logic here
+      console.log(`${this.playerName} is playing the game.`);
+      this.score += 2;
+      console.log(`Score: ${this.score}`);
+    }
+  };
+  
+  game.play(); 
+
+    </script>
+</body>
+</html>

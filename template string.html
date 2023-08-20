@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+//Write a function that takes a person’s name and age and returns a greeting message
+//using template strings.
+
+function greetPerson(name, age) {
+    return `My name is ${name} and I am ${age} years old.`;
+  }
+  const name = "zunaira";
+  const age = 18;
+  console.log(greetPerson(name, age));
+
+//Write a function that takes an array of numbers and returns a string with the sum and
+//the average of the numbers using template strings.
+
+function sumAndAverage(numbers) {
+    const sum = numbers.reduce((acc, num) => acc + num, 0);
+    const average = sum / numbers.length;
+    return `Sum: ${sum}, Average: ${average.toFixed(2)}`;
+  }
+  const numberArray = [77, 9, 4, 22, 2];
+  console.log(sumAndAverage(numberArray));
+//Write a function that takes a tag name and some text and returns an HTML element
+//with that tag and text using template strings.
+
+
+function createHTMLElement(tag, text) {
+    return `<${tag}>${text}</${tag}>`;
+  }
+  const tagName = "h1";
+  const elementText = "Hello, World!";
+  console.log(createHTMLElement(tagName, elementText));
+  
+  //Write a function that takes an object with name, price and quantity properties and
+//returns a string with the product information using template strings.
+
+
+  function getProductInfo(product) {
+    return `Product: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}`;
+  }
+  const productObject = { name: "Widget", price: 2.0, quantity: 22 };
+  console.log(getProductInfo(productObject));
+
+ // Write a function that takes a date object and returns a string with the date formatted as
+//dd/mm/yyyy using template strings.
+
+function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+  const currentDate = new Date();
+  console.log(formatDate(currentDate));
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+//Write a function that takes an array of two numbers and returns their sum. Use array
+//destructuring to assign the numbers to variables.
+
+function sumTwoNumbers(numbers) {
+    const [num1, num2] = numbers;
+    return num1 + num2;
+  }
+  const numbArray = [9, 5];
+  console.log(sumTwoNumbers(numbArray));
+
+/* Write a function that takes an object with name, age and occupation properties and
+returns a string with the person’s information. Use object destructuring to assign the
+properties to variables.*/
+
+function getPersonInfo(person) {
+    const { name, age, occupation } = person;
+    return `Name: ${name}, Age: ${age}, Occupation: ${occupation}`;
+  } 
+  const personss = {name: "zunaira", age: 18, occupation: "programmer" };
+  console.log(getPersonInfo(personss));
+
+ /* Write a function that takes an array of objects with name and score properties and
+returns the name of the person with the highest score. Use array destructuring and the
+spread operator (...) to get the first element and the rest of the array.*/
+
+function getHighestScorer(people) {
+    const [highestScorer, ...rest] = people.sort((a, b) => b.score - a.score);
+    return highestScorer.name;
+  }
+  const pplArray = [
+    { name: "ilma", score: 90 },
+    { name: "areeba", score: 78 },
+    { name: "simran", score: 88 },
+  ];
+  console.log(getHighestScorer(pplArray));
+
+ /* Write a function that takes an object with firstName, lastName and middleName
+properties and returns a string with the person’s initials. Use object destructuring with
+default values to assign the properties to variables.*/
+
+function getPersonInitials(person) {
+    const { firstName, lastName, middleName = "" } = person;
+    return `${firstName.charAt(0)}${middleName.charAt(0)}${lastName.charAt(0)}`;
+  }
+  const personObject2 = { firstName: "Muhammad", lastName: "shaheryar" };
+  console.log(getPersonInitials(personObject2));
+
+  /*Write a function that takes an array of strings and returns an object with two properties:
+first, which is the first element of the array, and last, which is the last element of the
+array. Use array destructuring and shorthand property names to create the object.*/
+
+function getFirstAndLastElements(arr) {
+    const [first, ...rest] = arr;
+    const last = rest.pop();
+    return { first, last };
+  }
+  const stringArray = ["mango", "strawberry", "banana", "berry"];
+  console.log(getFirstAndLastElements(stringArray));
+
+
+    </script>
+
+</body>
+</html>

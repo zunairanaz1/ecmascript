@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+//  a: Create a class for Person including the constructor for firstname and lastname.
+class Person {
+    constructor(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+  }
+
+  const friend1 = new Person('zunaira', 'naz');
+  const friend2 = new Person('ilma', 'nizami');
+  
+
+/*b:Create a variable and assign a value of the new Person object using your
+friend's first and last names.*/
+
+  function fullBodyWorkout() {
+    console.log("Perform exercises for full body workout");
+}
+
+function cardioAndRecovery() {
+    console.log("Perform cardio exercise and recovery activities");
+}
+
+function upperBodyFocus() {
+    console.log("Perform upper body exercises");
+}
+
+function lowerBodyFocus() {
+    console.log("Perform lower body exercises");
+}
+
+function activeRecovery() {
+    console.log("Engage in light activity for recovery");
+}
+
+function totalBodyCircuit() {
+    console.log("Perform a total body circuit workout");
+}
+
+for (let day = 1; day <= 7; day++) {
+    console.log(`Day ${day}:`);
+    switch (day) {
+        case 1:
+            fullBodyWorkout();
+            break;
+        case 2:
+            cardioAndRecovery();
+            break;
+        case 3:
+            upperBodyFocus();
+            break;
+        case 4:
+            cardioAndRecovery();
+            break;
+        case 5:
+            lowerBodyFocus();
+            break;
+        case 6:
+            activeRecovery();
+            break;
+        case 7:
+            totalBodyCircuit();
+            break;
+        default:
+            console.log("Rest day or customized workout");
+    }
+    console.log();
+}
+
+/*c:Now add a second variable with another friend's name using their first name
+and last name.*/
+
+
+function fullBodyWorkout() {
+    console.log("Perform exercises for full body workout");
+}
+
+function cardioAndRecovery() {
+    console.log("Perform cardio exercise and recovery activities");
+}
+
+function upperBodyFocus() {
+    console.log("Perform upper body exercises");
+}
+
+function lowerBodyFocus() {
+    console.log("Perform lower body exercises");
+}
+
+function activeRecovery() {
+    console.log("Engage in light activity for recovery");
+}
+
+function totalBodyCircuit() {
+    console.log("Perform a total body circuit workout");
+}
+
+function displayWorkoutPlan(day, friendName) {
+    console.log(`Day ${day} for ${friendName}:`);
+    switch (day) {
+        case 1:
+            fullBodyWorkout();
+            break;
+        case 2:
+            cardioAndRecovery();
+            break;
+        case 3:
+            upperBodyFocus();
+            break;
+        case 4:
+            cardioAndRecovery();
+            break;
+        case 5:
+            lowerBodyFocus();
+            break;
+        case 6:
+            activeRecovery();
+            break;
+        case 7:
+            totalBodyCircuit();
+            break;
+        default:
+            console.log("Rest day or customized workout");
+    }
+    console.log();
+}
+
+const yourName = "Your First Last"; 
+const friend1Name = "Friend 1 First Last"; 
+const friend2Name = "Friend 2 First Last"; 
+
+for (let day = 1; day <= 7; day++) {
+    displayWorkoutPlan(day, yourName);
+    displayWorkoutPlan(day, friend1Name);
+    displayWorkoutPlan(day, friend2Name);
+}
+
+  // Step d: Output both friends into the console with a greeting of hello.
+  console.log(`Hello, ${friend1.firstName} ${friend1.lastName}!`);
+  console.log(`Hello, ${friend2.firstName} ${friend2.lastName}!`);
+
+  /*Write a class that represents a person with a name and an age. The class should
+have a constructor that takes the name and age as parameters, and a method that
+returns the person’s introduction.*/
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    introduce() {
+        return `Hi, I'm ${this.name} and I'm ${this.age} years old.`;
+    }
+}
+
+const person1 = new Person("huzaifa", 20);
+console.log(person1.introduce()); 
+
+const person2 = new Person("shaheryar", 25);
+console.log(person2.introduce()); 
+
+/*Write a class that represents a rectangle with a width and a height. The class should
+have a constructor that takes the width and height as parameters, and two methods
+that return the area and the perimeter of the rectangle.*/
+
+
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    calculateArea() {
+        return this.width * this.height;
+    }
+
+    calculatePerimeter() {
+        return 2 * (this.width + this.height);
+    }
+}
+
+const width = 8;
+const height = 1;
+const rectangle = new Rectangle(width, height);
+
+const area = rectangle.calculateArea();
+const perimeter = rectangle.calculatePerimeter();
+
+console.log(`Width: ${width}, Height: ${height}`);
+console.log(`Area: ${area}, Perimeter: ${perimeter}`);
+
+
+
+/*Write a class that represents a circle with a radius. The class should have a
+constructor that takes the radius as a parameter, and three methods that return the
+diameter, the circumference and the area of the circle.*/
+
+class Circle {
+    constructor(radius) {
+        this.radius = radius;
+    }
+
+    calculateDiameter() {
+        return 2 * this.radius;
+    }
+
+    calculateCircumference() {
+        return 2 * Math.PI * this.radius;
+    }
+
+    calculateArea() {
+        return Math.PI * this.radius ** 2;
+    }
+}
+
+const radius = 9;
+const circle = new Circle(radius);
+
+const diameter = circle.calculateDiameter();
+const circumference = circle.calculateCircumference();
+const area1 = circle.calculateArea();
+
+console.log(`Radius: ${radius}`);
+console.log(`Diameter: ${diameter}`);
+console.log(`Circumference: ${circumference}`);
+console.log(`Area: ${area}`);
+
+/*Write a class that inherits from the person class and represents a student with a
+name, an age and a course. The class should have a constructor that takes the name,
+age and course as parameters, and a method that overrides the person’s
+introduction to include the course.*/
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    introduction() {
+        return `Hi, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+}
+
+class Student extends Person {
+    constructor(name, age, course) {
+        super(name, age);
+        this.course = course;
+    }
+
+    introduction() {
+        return `Hi, my name is ${this.name}, I am ${this.age} years old, and I am studying ${this.course}.`;
+    }
+}
+
+const name = "zuni";
+const age = 18;
+const course = "Computer Science";
+const student = new Student(name, age, course);
+
+console.log(student.introduction())
+
+/* Write a class that inherits from the rectangle class and represents a square with a
+side. The class should have a constructor that takes the side as a parameter, and two
+methods that override the area and perimeter of the rectangle to use the side
+instead of the width and height.*/
+
+
+class Rectangle1 {
+    constructor(width, height) {
+      this.width = width;
+      this.height = height;
+    }
+  
+    getArea() {
+      return this.width * this.height;
+    }
+  
+    getPerimeter() {
+      return 2 * (this.width + this.height);
+    }
+  }
+  
+  class Square extends Rectangle {
+    constructor(side) {
+      super(side, side);
+    }
+  
+    getArea() {
+      return this.width ** 2;
+    }
+  
+    getPerimeter() {
+      return 4 * this.width;
+    }
+  }
+  const square1 = new Square(4);
+  console.log('Area:', square1.getArea()); 
+  console.log('Perimeter:', square1.getPerimeter()); 
+  
+  const square2 = new Square(2);
+  console.log('Area:', square2.getArea()); 
+  console.log('Perimeter:', square2.getPerimeter()); 
+  
+
+</script>
+</body>
+</html>

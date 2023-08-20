@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+    <script>
+
+/*We can combine the arrow function with certain built-in methods. For example, we can
+use the foreach() method on an array. This method executes a certain function for every
+element in the array. Have a look at this example:*/
+
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach((element) => console.log(element));
+
+/*Write an arrow function that takes a string and returns its length.*/
+
+const getStringLength = (str) => str.length;
+const inputString = "Hello, world!";
+const length = getStringLength(inputString);
+console.log(length); 
+
+/*Write an arrow function that takes two numbers and returns their product.*/
+
+const multiply = (num1, num2) => num1 * num2;
+
+const result = multiply(8, 5);
+console.log(result); 
+
+/*Write an arrow function that takes an array of numbers and returns the average of the
+numbers.*/
+
+const calculateAverage = (numbers) => {
+  if (numbers.length === 0) {
+    return 0; 
+  }
+
+  const sum = numbers.reduce((total, number) => total + number, 0);
+  return sum / numbers.length;
+};
+
+const numbersArray = [4, 8, 12, 6, 10];
+const average = calculateAverage(numbersArray);
+console.log(average); 
+
+/*Write an arrow function that takes a name and returns a greeting message.*/
+
+const createGreeting = (name) => `Hello, ${name}!`;
+
+
+const userName = "zuni";
+const greeting = createGreeting(userName);
+console.log(greeting); 
+
+/*Write an arrow function that takes no parameters and returns a random number
+between 0 and 1.*/
+
+const getRandomNumber = () => Math.random();
+
+const randomNumber = getRandomNumber();
+console.log(randomNumber); 
+
+    </script>
+</body>
+</html>

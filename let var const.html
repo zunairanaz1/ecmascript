@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMASCRIPT</title>
+</head>
+<body>
+   <script>
+
+    //The value of pi, which will not change. If you try reassigning a value declared with const,
+//you will get an error:
+
+const PI = 3.14159;
+console.log(PI);
+
+//Write a function that takes an array of numbers and returns the sum of the squares of each number. Use let,
+   // const, and var to declare variables in different scopes.
+
+   function sumOfSquares(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      const square = numbers[i] * numbers[i];
+      sum += square;
+    }
+    return sum;
+  }
+  const numbersArray = [12, 2, 83, ];
+  console.log(sumOfSquares(numbersArray));
+
+  //Write a loop that iterates over an array of strings and prints the first letter of each
+//string. Use let to declare a block-scoped variable inside the loop.
+
+const stringsArray = ["mango", "grapes", "rasberry"];
+for (let i = 0; i < stringsArray.length; i++) {
+  let firstLetter = stringsArray[i][0];
+  console.log(firstLetter);
+}
+
+//Write a function that takes a number n and returns a string with n asterisks. Use const
+//to declare a constant string that holds one asterisk.
+
+const ASTERISK = '*';
+function generateAsterisks(n) {return ASTERISK.repeat(n);}
+console.log(generateAsterisks(2));
+
+//Write a function that takes an object with name and age properties and returns a
+//greeting message. Use var to declare a function-scoped variable that holds the message.
+
+function generateGreeting(personData) {
+    const greetingMessage = 'Hello, my name is ${personData.name} and I am ${personData.age} years old.';
+    return greetingMessage;}
+  const personObject = { name:"ZUNAIRA", age: 18 };
+  console.log(generateGreeting(personObject));
+
+  //Write a function that takes an array of numbers and returns the maximum value. Use
+ // the spread operator (...) to pass the array elements as arguments to the Math.max
+  //function. Use let to declare a variable that holds the maximum value.
+
+  function findMaxValue(numbers) {
+    let max = Math.max(...numbers);
+    return max;
+  }
+  const numbersArray2 = [1, 6, 22, 88, 17];
+  console.log(findMaxValue(numbersArray2));
+   </script>
+
+
+ 
+
+
+
+
+</body>
+</html>
